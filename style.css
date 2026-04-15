@@ -84,7 +84,7 @@ nav {
 #theme-toggle {
     background-color: transparent; /* Container style - removes gray bg */
     border: none;                  /* Removes outline */
-    padding: 0.1rem; 
+    padding-top: 2px; 
     font-size: 1.25rem;      /* Button sizing */
     cursor: pointer;
 }

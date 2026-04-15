@@ -5,7 +5,7 @@
   --surface:  #EEECEA;
   --ink:      #161412;
   --ink-muted:#6B6560;
-  --accent:   #1C3F6E;
+  --accent:   #4172a7;
   --rule:     #D5D2CC;
   --nav:     rgba(247,246,242,0.88);
   --font-display: 'Cormorant', Georgia, serif;
@@ -80,6 +80,25 @@ nav {
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--ink); }
+
+#theme-toggle {
+    background-color: transparent; /* Container style - removes gray bg */
+    border: none;                  /* Removes outline */
+    padding: 0.1rem; 
+    font-size: 1.25rem;      /* Button sizing */
+    cursor: pointer;
+}
+
+/* ── 2. ICON INSIDE (changes color) ── */
+[data-bs-theme="dark"] #toggle-icon,
+[data-bs-theme="dark"] .bi-toggle-on {
+  color: #fff !important; /* Icon color in dark mode */
+}
+
+[data-bs-theme="light"] #toggle-icon,
+[data-bs-theme="light"] .bi-toggle-on {
+  color: var(--ink) !important; /* Icon color in light mode */
+}
 
 /* ── LAYOUT ── */
 section { padding: 7rem 0; }

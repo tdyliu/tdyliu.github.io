@@ -7,16 +7,21 @@
   --ink-muted:#6B6560;
   --accent:   #1C3F6E;
   --rule:     #D5D2CC;
+  --nav:     rgba(247,246,242,0.88);
   --font-display: 'Cormorant', Georgia, serif;
   --font-body:    'Karla', system-ui, sans-serif;
 }
 
 /* DARK MODE (Triggered by JS) */
 [data-theme="dark"] {
-    --bg: #121212;
-    --ink: #e9ecef;
-    --accent: #64ffda; /* High-contrast tech accent */
-    --card-bg: #1e1e1e;
+  --bg: #121212;
+  --ink: #e9ecef;
+  --accent: #64afff; /* High-contrast tech accent */
+  --card-bg: #1e1e1e;
+  --surface:  #181717;
+  --ink-muted:#c0c0c0;
+  --rule:     #D5D2CC;
+  --nav:     rgba(27, 26, 26, 0.803);
 }
 
 /* Apply your variables */
@@ -52,7 +57,7 @@ nav {
   z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.25rem 4rem;
-  background: rgba(247,246,242,0.88);
+  background: var(--nav);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--rule);
 }

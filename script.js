@@ -5,9 +5,15 @@ const htmlElement = document.documentElement;
 
 // Function to update the UI based on theme
 function setTheme(theme) {
-    htmlElement.setAttribute('data-theme', theme);
+    // If using Bootstrap 5.3, this line handles the color swap automatically
+    htmlElement.setAttribute('data-bs-theme', theme); 
+    
+    // Fallback if you write your own CSS later
+    htmlElement.setAttribute('data-theme', theme); 
+    
     localStorage.setItem('theme', theme);
 
+    // Update the icons
     if (theme === 'dark') {
         modeIcon.className = 'bi bi-moon-stars';
         toggleIcon.className = 'bi bi-toggle-on fs-4';
@@ -17,13 +23,14 @@ function setTheme(theme) {
     }
 }
 
-// Check for saved user preference on load
-const savedTheme = localStorage.getItem('theme') || 'light';
+// Check for saved user preference on load, DEFAULT TO 'dark'
+const savedTheme = localStorage.getItem('theme') || 'dark';
 setTheme(savedTheme);
 
 // Toggle click event
 themeToggle.addEventListener('click', () => {
-    const currentTheme = htmlElement.getAttribute('data-theme');
+    // Check current theme, default to dark if null
+    const currentTheme = htmlElement.getAttribute('data-bs-theme') || 'dark';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
 });

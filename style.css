@@ -24,22 +24,6 @@
   --nav:     rgba(27, 26, 26, 0.803);
 }
 
-/* Apply your variables */
-body {
-    background-color: var(--bg-primary);
-    color: var(--text-main);
-    transition: all 0.3s ease; /* Makes the switch feel premium */
-}
-
-/* Example: Project cards or links */
-.project-card {
-    background-color: var(--card-bg);
-}
-
-a {
-    color: var(--accent-color);
-}
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -47,9 +31,12 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
 }
+
+a { color: var(--accent); }
 
 /* ── NAV ── */
 nav {
@@ -227,13 +214,14 @@ h1 em {
   transition: background 0.2s;
 }
 .project-item:last-child { border-bottom: 1px solid var(--rule); }
-.project-meta {}
+/* .project-meta {} */
 .project-number {
   font-family: var(--font-display);
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   color: var(--ink-muted);
   font-style: italic;
   margin-bottom: 0.5rem;
+  margin-top: -0.5rem;
 }
 .project-name {
   font-family: var(--font-display);
@@ -267,7 +255,7 @@ h1 em {
 }
 .exp-item:last-child { border-bottom: 1px solid var(--rule); }
 .exp-date {
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.06em;
   color: var(--ink-muted);

@@ -34,7 +34,7 @@
   <section id="hero">
     <div class="hero-inner">
       <div class="hero-tag fade-up">Aerospace &amp; Mechanical Engineering</div>
-      <h1 class="fade-up">Teddy<br /><em>Liu</em></h1>
+      <h1 class="fade-up">Teddy<br />Liu</h1>
       <p class="hero-sub fade-up">
         Junior engineer with hands-on experience in CAD modeling, additive manufacturing, embedded systems, and electromechanical maintenance. I build things that work.
       </p>
@@ -57,10 +57,10 @@
       <div class="about-grid">
         <div class="about-text fade-up">
           <p>
-            I'm a 3rd year student at the University of California, Davis pursuing a double major in Aerospace and Mechanical Engineering. I've been designing in Autodesk Fusion 360 since my freshman year of high school, and most of my projects start with a problem I actually wanted to solve.
+            I'm a 4th year student at the University of California, Davis pursuing a double major in Aerospace and Mechanical Engineering. I've been designing in Autodesk Fusion 360 since my freshman year of high school, and most of my projects start with a problem I actually wanted to solve.
           </p>
           <p>
-            Outside of coursework, I design and 3D print parts on my own printer, build custom electronics, and maintain a self-hosted Linux server. I'm interested in defense engineering and the systems that underpin national security.
+            Outside of coursework, I design and 3D print parts on my own printer, build custom electronics, and maintain a self-hosted Linux server. I'm interested in defense engineering and embedded engineering projects.
           </p>
           <p>
             I'm currently seeking internship opportunities where I can get hands-on experience in Mechanical and Aerospace Engineering.
@@ -95,7 +95,7 @@
 
         <div class="project-item fade-up">
           <div class="project-meta">
-            <div class="project-number">01</div>
+            <div class="project-number">1</div>
             <div class="project-name">ESP32 Remote Wake Switch</div>
             <div class="project-tags">
               <span class="tag">PCB Design</span>
@@ -105,13 +105,13 @@
             </div>
           </div>
           <div class="project-desc">
-            Designed and fabricated a custom PCB to interface with an ESP32 microcontroller, enabling remote PC power control over a home network. Programmed embedded firmware to handle wake signals and designed a fitted enclosure in Fusion 360, printed on my personal 3D printer. The project covered the full development cycle from schematic to finished physical device.
+            Designed and fabricated a custom PCB to interface with an ESP32 microcontroller, enabling remote PC power control over a home network or network tunnel like tailscale. Programmed embedded firmware to handle wake signals and designed a fitted enclosure in Fusion 360, printed on my personal 3D printer. The project covered the full development cycle from schematic to finished physical device.
           </div>
         </div>
 
         <div class="project-item fade-up">
           <div class="project-meta">
-            <div class="project-number">02</div>
+            <div class="project-number">2</div>
             <div class="project-name">Headless Home Linux Server</div>
             <div class="project-tags">
               <span class="tag">Linux</span>
@@ -121,10 +121,27 @@
             </div>
           </div>
           <div class="project-desc">
-            Deployed a headless Linux server on a refurbished Dell OptiPlex using Docker to containerize a game server instance for remote access. Configured a Cloudflare Tunnel to expose services publicly, bypassing carrier-grade NAT (CGNAT) without port forwarding. Managed entirely via CLI including container orchestration and network configuration.
+            Deployed a headless Linux server on a refurbished Dell OptiPlex to host game servers and cloud storage. Configured playit.gg tunnels to expose services publicly, bypassing carrier-grade NAT (CGNAT) without port forwarding. Managed via CLI and self-hosted web interfaces.
           </div>
         </div>
-
+        
+        <div class="project-item fade-up">
+          <div class="project-meta">
+            <div class="project-number">3</div>
+            <div class="project-name">Equatorial Telescope Mount Tracker</div>
+            <div class="project-tags">
+              <span class="tag">Embedded</span>
+              <span class="tag">Fusion 360</span>
+              <span class="tag">3D Printing</span>
+              <span class="tag">Mechatronics</span>
+              <span class="tag">Power Electronics</span>
+            </div>
+          </div>
+          <div class="project-desc">
+            Built a motorized RA drive for an equatorial telescope mount using a WeMos D1 R32 and CNC Shield V3 running OnStepX firmware, with TMC2209 stepper drivers for quiet, precise tracking. Designed a GT2 belt reduction (3:1) for the RA axis and a portable 12V power stage — USB-C PD triggered via a ZY12PDN buck converter off a 10000mAh battery bank — for fully off-grid GoTo tracking.
+          </div>
+        </div>
+        
       </div>
     </div>
   </section>
@@ -152,9 +169,23 @@
         </div>
 
         <div class="exp-item fade-up">
+          <div class="exp-date">June 2026<br />— July 2026</div>
+          <div>
+            <div class="exp-org">OffKai Expo</div>
+            <div class="exp-role">Robot Tech</div>
+            <ul class="exp-bullets">
+              <li>Modified an Ohmnilabs telepresence robot's audio system, replacing the stock speaker with a Panasonic car speaker driven by a Fosi M04 amplifier for clearer guest communication in loud convection centers</li>
+              <li>Built a small bypass circuit to trick the robot's BMS, enabling swappable 40V batteries for extended uninterrupted operation</li>
+              <li>Managed call links and remote connectivity for guest telepresence sessions</li>
+              <li>Chaperoned guests operating the robots on-site, troubleshooting hardware and connection issues in real time</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item fade-up">
           <div class="exp-date">July 2022<br />— August 2022</div>
           <div>
-            <div class="exp-org">Hayward Public Works Agency</div>
+            <div class="exp-org">Alameda County Public Works Agency (ACPWA)</div>
             <div class="exp-role">Intern</div>
             <ul class="exp-bullets">
               <li>Used CAD software to catalog and map pedestrian ramp infrastructure in support of ADA compliance surveying</li>
@@ -188,8 +219,8 @@
           <div class="skill-group-title">Systems &amp; Hardware</div>
           <ul>
             <li>Embedded Systems (ESP32)</li>
-            <li>PC Building &amp; Diagnostics</li>
-            <li>Electromechanical Maintenance</li>
+            <li>Soldering &amp; Circuit Rework</li>
+            <li>Power Electronics (Buck Conversion, BMS)</li>
             <li>Automotive Electrical</li>
           </ul>
         </div>
@@ -198,7 +229,7 @@
           <ul>
             <li>Linux (CLI / Headless)</li>
             <li>Docker</li>
-            <li>Networking / CGNAT</li>
+            <li>Reverse Proxying / Tailscale</li>
             <li>Slack</li>
           </ul>
         </div>
@@ -227,6 +258,7 @@
     <p>Aerospace &amp; Mechanical Engineering</p>
   </footer>
 
+  <script src="script.js"></script>
   <script>
     // Fade-up on scroll
     const observer = new IntersectionObserver(

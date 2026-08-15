@@ -11,7 +11,11 @@ function setTheme(theme) {
     // Fallback if you write your own CSS later
     htmlElement.setAttribute('data-theme', theme); 
     
-    localStorage.setItem('theme', theme);
+    try {
+        localStorage.setItem('theme', theme);
+    } catch (e) {
+        console.warn('localStorage unavailable, theme will not persist:', e);
+    }
 
     // Update the icons
     if (theme === 'dark') {
@@ -24,7 +28,12 @@ function setTheme(theme) {
 }
 
 // Check for saved user preference on load, DEFAULT TO 'dark'
-const savedTheme = localStorage.getItem('theme') || 'dark';
+let savedTheme = 'dark';
+try {
+    savedTheme = localStorage.getItem('theme') || 'dark';
+} catch (e) {
+    console.warn('localStorage unavailable, defaulting to dark theme:', e);
+}
 setTheme(savedTheme);
 
 // Toggle click event

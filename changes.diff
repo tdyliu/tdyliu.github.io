@@ -1,0 +1,1007 @@
+diff --git a/README.md b/README.md
+index 78bf324..a08e743 100644
+--- a/README.md
++++ b/README.md
+@@ -12,8 +12,7 @@ A single-page portfolio covering my background, projects, work experience, and s
+ 
+ - Vanilla HTML / CSS / JavaScript — no framework, no build step
+ - CSS custom properties for theming (light/dark mode toggle)
+-- [Bootstrap Icons](https://icons.getbootstrap.com/) for UI icons
+-- Google Fonts (Cormorant, Karla)
++- Google Fonts (Source Serif 4, IBM Plex Sans)
+ - Hosted on GitHub Pages
+ 
+ ## Structure
+@@ -27,8 +26,7 @@ A single-page portfolio covering my background, projects, work experience, and s
+ 
+ ## Features
+ 
+-- Light/dark theme toggle with `localStorage` persistence
+-- Scroll-triggered fade-in animations
++- Light theme by default, follows system dark mode, manual toggle persisted in `localStorage`
+ - Fully responsive layout
+ 
+ ## Contact
+diff --git a/index.html b/index.html
+index 7b23749..4bbf56a 100644
+--- a/index.html
++++ b/index.html
+@@ -2,270 +2,199 @@
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-  <title>Teddy Liu — Engineering Portfolio</title>
++  <meta name="viewport" content="width=device-width, initial-scale=1" />
++  <title>Teddy Liu | Aerospace &amp; Mechanical Engineering</title>
++  <meta name="description" content="Portfolio of Teddy Liu, UC Davis aerospace and mechanical engineering student (B.S., expected December 2027) seeking engineering internships. CAD, mechatronics, embedded systems, and electromechanical maintenance." />
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet" />
+-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
++  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="style.css" />
++  <script src="script.js"></script>
+ </head>
+ <body>
+-
+-  <!-- NAV -->
+-  <nav>
+-    <a href="#hero" class="nav-name">Teddy Liu</a>
+-    <ul class="nav-links">
+-      <li><a href="#about">About</a></li>
+-      <li><a href="#projects">Projects</a></li>
+-      <li><a href="#experience">Experience</a></li>
+-      <li><a href="#contact">Contact</a></li>
+-      <li> 
+-        <i id="mode-icon" class="bi bi-moon-stars theme-icon" style="padding-right: 0.1rem;"></i>
+-        <button id="theme-toggle" class="btn">
+-          <i id="toggle-icon" class="bi bi-toggle-on"></i>
+-        </button>
+-      </li>
+-    </ul>
+-
+-  </nav>
+-
+-  <!-- HERO -->
+-  <section id="hero">
+-    <div class="hero-inner">
+-      <div class="hero-tag fade-up">Aerospace &amp; Mechanical Engineering</div>
+-      <h1 class="fade-up">Teddy<br />Liu</h1>
+-      <p class="hero-sub fade-up">
+-        Junior engineer with hands-on experience in CAD modeling, additive manufacturing, embedded systems, and electromechanical maintenance. I build things that work.
+-      </p>
+-      <a href="#projects" class="hero-cta fade-up">
+-        View Projects
+-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+-          <path d="M1 7h12M7 1l6 6-6 6"/>
+-        </svg>
+-      </a>
++  <a class="skip" href="#main">Skip to content</a>
++
++  <header class="site-header">
++    <div class="wrap bar">
++      <a class="brand" href="#top">Teddy Liu</a>
++      <nav aria-label="Primary">
++        <a href="#experience">Experience</a>
++        <a href="#projects">Projects</a>
++        <a href="#skills">Skills</a>
++        <a href="#contact">Contact</a>
++        <button id="theme-toggle" type="button">Dark mode</button>
++      </nav>
+     </div>
+-  </section>
+-
+-  <hr class="rule" />
+-
+-  <!-- ABOUT -->
+-  <section id="about">
+-    <div class="container">
+-      <p class="section-label fade-up">About</p>
+-      <h2 class="section-title fade-up">Engineer by degree,<br />builder by habit.</h2>
+-      <div class="about-grid">
+-        <div class="about-text fade-up">
+-          <p>
+-            I'm a 4th year student at the University of California, Davis pursuing a double major in Aerospace and Mechanical Engineering. I've been designing in Autodesk Fusion 360 since my freshman year of high school, and most of my projects start with a problem I actually wanted to solve.
+-          </p>
+-          <p>
+-            Outside of coursework, I design and 3D print parts on my own printer, build custom electronics, and maintain a self-hosted Linux server. I'm interested in defense engineering and embedded engineering projects.
++  </header>
++
++  <main id="main">
++    <section class="hero" id="top">
++      <div class="wrap hero-grid">
++        <div>
++          <h1>Teddy Liu</h1>
++          <p class="role">Aerospace &amp; Mechanical Engineering student, UC Davis</p>
++          <p class="lead">
++            I maintain industrial electromechanical machinery, and I design, build, and test my own hardware in CAD, mechatronics, and embedded systems. I am looking for a mechanical or aerospace engineering internship where I can contribute to real products.
+           </p>
+-          <p>
+-            I'm currently seeking internship opportunities where I can get hands-on experience in Mechanical and Aerospace Engineering.
++          <p class="actions">
++            <a class="btn primary" href="resume.pdf">Download resume</a>
++            <a class="btn" href="#contact">Get in touch</a>
+           </p>
+         </div>
+-        <div class="about-stats fade-up">
+-          <div class="stat">
+-            <div class="stat-number">5+</div>
+-            <div class="stat-label">Years using Fusion 360</div>
+-          </div>
+-          <div class="stat">
+-            <div class="stat-number">2027</div>
+-            <div class="stat-label">Expected graduation</div>
+-          </div>
+-          <div class="stat">
+-            <div class="stat-number">2×</div>
+-            <div class="stat-label">Aerospace &amp; Mechanical Engineering</div>
+-          </div>
+-        </div>
+-      </div>
+-    </div>
+-  </section>
+-
+-  <hr class="rule" />
+-
+-  <!-- PROJECTS -->
+-  <section id="projects">
+-    <div class="container">
+-      <p class="section-label fade-up">Projects</p>
+-      <h2 class="section-title fade-up">Things I've built.</h2>
+-      <div class="project-list">
+-
+-        <div class="project-item fade-up">
+-          <div class="project-meta">
+-            <div class="project-number">1</div>
+-            <div class="project-name">ESP32 Remote Wake Switch</div>
+-            <div class="project-tags">
+-              <span class="tag">PCB Design</span>
+-              <span class="tag">Embedded</span>
+-              <span class="tag">Fusion 360</span>
+-              <span class="tag">3D Printing</span>
+-            </div>
+-          </div>
+-          <div class="project-desc">
+-            Designed and fabricated a custom PCB to interface with an ESP32 microcontroller, enabling remote PC power control over a home network or network tunnel like tailscale. Programmed embedded firmware to handle wake signals and designed a fitted enclosure in Fusion 360, printed on my personal 3D printer. The project covered the full development cycle from schematic to finished physical device.
+-          </div>
+-        </div>
+ 
+-        <div class="project-item fade-up">
+-          <div class="project-meta">
+-            <div class="project-number">2</div>
+-            <div class="project-name">Headless Home Linux Server</div>
+-            <div class="project-tags">
+-              <span class="tag">Linux</span>
+-              <span class="tag">Docker</span>
+-              <span class="tag">Networking</span>
+-              <span class="tag">Server Admin</span>
+-            </div>
+-          </div>
+-          <div class="project-desc">
+-            Deployed a headless Linux server on a refurbished Dell OptiPlex to host game servers and cloud storage. Configured playit.gg tunnels to expose services publicly, bypassing carrier-grade NAT (CGNAT) without port forwarding. Managed via CLI and self-hosted web interfaces.
+-          </div>
+-        </div>
+-        
+-        <div class="project-item fade-up">
+-          <div class="project-meta">
+-            <div class="project-number">3</div>
+-            <div class="project-name">Equatorial Telescope Mount Tracker</div>
+-            <div class="project-tags">
+-              <span class="tag">Embedded</span>
+-              <span class="tag">Fusion 360</span>
+-              <span class="tag">3D Printing</span>
+-              <span class="tag">Mechatronics</span>
+-              <span class="tag">Power Electronics</span>
+-            </div>
+-          </div>
+-          <div class="project-desc">
+-            Built a motorized RA drive for an equatorial telescope mount using a WeMos D1 R32 and CNC Shield V3 running OnStepX firmware, with TMC2209 stepper drivers for quiet, precise tracking. Designed a GT2 belt reduction (3:1) for the RA axis and a portable 12V power stage — USB-C PD triggered via a ZY12PDN buck converter off a 10000mAh battery bank — for fully off-grid GoTo tracking.
+-          </div>
+-        </div>
+-        
++        <dl class="titleblock" aria-label="Summary">
++          <div><dt>Education</dt><dd>B.S. Aerospace Engineering and B.S. Mechanical Engineering (double major), University of California, Davis</dd></div>
++          <div><dt>Graduation</dt><dd>Expected December 2027</dd></div>
++          <div><dt>Seeking</dt><dd>Mechanical and aerospace engineering internships</dd></div>
++          <div><dt>Interests</dt><dd>Aerospace, defense, and embedded systems</dd></div>
++          <div><dt>Core tools</dt><dd>Fusion 360, FDM 3D printing, ESP32, Linux, Docker</dd></div>
++          <div><dt>Location</dt><dd>Davis, CA</dd></div>
++        </dl>
+       </div>
+-    </div>
+-  </section>
+-
+-  <hr class="rule" />
++    </section>
+ 
+-  <!-- EXPERIENCE -->
+-  <section id="experience">
+-    <div class="container">
+-      <p class="section-label fade-up">Experience</p>
+-      <h2 class="section-title fade-up">Where I've worked.</h2>
+-      <div class="exp-list">
++    <section id="experience">
++      <div class="wrap">
++        <h2>Experience</h2>
+ 
+-        <div class="exp-item fade-up">
+-          <div class="exp-date">November 2023<br />— Present</div>
++        <article class="job">
++          <p class="when">November 2023 to present<br />Davis, CA</p>
+           <div>
+-            <div class="exp-org">UC Davis Memorial Union Games Area</div>
+-            <div class="exp-role">Student Mechanic</div>
+-            <ul class="exp-bullets">
+-              <li>Perform routine maintenance and repairs on pinspotter machines and lane oiling equipment across all lanes</li>
+-              <li>Diagnose and resolve mechanical malfunctions in electromechanical systems to minimize operational downtime</li>
+-              <li>Coordinate with the maintenance team via Slack to communicate machine status and track repairs in real time</li>
++            <h3>Student Mechanic, UC Davis Memorial Union Games Area</h3>
++            <ul>
++              <li>Maintain, troubleshoot, and repair high-cycle industrial machinery, including electromechanical pinspotters and automated lane conditioning platforms.</li>
++              <li>Diagnose mechanical drive assemblies, gearboxes, microswitches, and fluid delivery pumping systems using systematic fault isolation to minimize lane downtime.</li>
++              <li>Inspect and service power transmission components, including belt drives, solenoid actuators, and bearings, to keep every lane operating.</li>
++              <li>Coordinate maintenance scheduling and machine status updates across the team, tracking repairs and flagging recurring electromechanical issues in real time.</li>
+             </ul>
+           </div>
+-        </div>
++        </article>
+ 
+-        <div class="exp-item fade-up">
+-          <div class="exp-date">June 2026<br />— July 2026</div>
++        <article class="job">
++          <p class="when">June 2026 to July 2026</p>
+           <div>
+-            <div class="exp-org">OffKai Expo</div>
+-            <div class="exp-role">Robot Tech</div>
+-            <ul class="exp-bullets">
+-              <li>Modified an Ohmnilabs telepresence robot's audio system, replacing the stock speaker with a Panasonic car speaker driven by a Fosi M04 amplifier for clearer guest communication in loud convection centers</li>
+-              <li>Built a small bypass circuit to trick the robot's BMS, enabling swappable 40V batteries for extended uninterrupted operation</li>
+-              <li>Managed call links and remote connectivity for guest telepresence sessions</li>
+-              <li>Chaperoned guests operating the robots on-site, troubleshooting hardware and connection issues in real time</li>
++            <h3>Robot Tech, OffKai Expo</h3>
++            <ul>
++              <li>Upgraded the audio system of an Ohmnilabs telepresence robot, replacing the stock speaker with a Panasonic car speaker driven by a Fosi M04 amplifier so guests could be heard in loud convention halls.</li>
++              <li>Built a bypass circuit for the robot's battery management system (BMS) to enable swappable 40V batteries and extended uninterrupted operation.</li>
++              <li>Managed call links and remote connectivity, and supported guests on site, troubleshooting hardware and connection issues in real time.</li>
+             </ul>
+           </div>
+-        </div>
++        </article>
+ 
+-        <div class="exp-item fade-up">
+-          <div class="exp-date">July 2022<br />— August 2022</div>
++        <article class="job">
++          <p class="when">July 2022 to August 2022<br />Hayward, CA</p>
+           <div>
+-            <div class="exp-org">Alameda County Public Works Agency (ACPWA)</div>
+-            <div class="exp-role">Intern</div>
+-            <ul class="exp-bullets">
+-              <li>Used CAD software to catalog and map pedestrian ramp infrastructure in support of ADA compliance surveying</li>
+-              <li>Contributed to municipal infrastructure documentation to aid city road improvement planning</li>
++            <h3>Engineering Intern, Alameda County Public Works Agency</h3>
++            <ul>
++              <li>Used CAD software to catalog and map pedestrian ramp infrastructure across county road networks in support of ADA compliance surveying.</li>
++              <li>Provided accurate spatial data and documentation to support road improvement planning and civil engineering operations.</li>
+             </ul>
+           </div>
+-        </div>
+-
++        </article>
+       </div>
+-    </div>
+-  </section>
+-
+-  <hr class="rule" />
++    </section>
++
++    <section id="projects" class="alt">
++      <div class="wrap">
++        <h2>Projects</h2>
++        <div class="projects">
++
++          <article>
++            <h3>DIY equatorial GoTo telescope mount</h3>
++            <p class="meta">Mechanical design, mechatronics, fabrication. April 2026 to present</p>
++            <ul>
++              <li>Built an automated GoTo tracking mount for refractor and reflector telescopes, running OnStepX firmware on an ESP32 (WeMos D1 R32) with TMC2209 silent stepper drivers.</li>
++              <li>Designed and fabricated a 3:1 GT2 belt reduction for the Right Ascension axis, balancing output torque against sidereal tracking resolution.</li>
++              <li>Modeled custom optical tube adapters in Fusion 360 and printed them in matte PLA with high-perimeter gyroid infill to resist flexure under load.</li>
++              <li>Designed a portable 12V power stage (USB-C PD trigger and ZY12PDN buck converter on a battery bank) for fully off-grid tracking.</li>
++            </ul>
++          </article>
++
++          <article>
++            <h3>Automated astrophotography and instrumentation pipeline</h3>
++            <p class="meta">Optical systems, systems integration, signal processing. May 2026 to present</p>
++            <ul>
++              <li>Configured a headless Raspberry Pi 4B running KStars, Ekos, and AstroDMx Capture to control cameras and acquire images over a local wireless network.</li>
++              <li>Integrated a filter-modified DSLR and CMOS planetary cameras to maximize sensor dynamic range for low signal-to-noise deep-sky imaging.</li>
++              <li>Built a multi-stage processing pipeline in Siril and RawTherapee for stacking, calibration, and radiometric correction, and traced and resolved a firmware compression artifact.</li>
++            </ul>
++          </article>
++
++          <article>
++            <h3>Optoisolated network wake switch</h3>
++            <p class="meta">Embedded systems, circuit design, CAD. December 2025</p>
++            <ul>
++              <li>Developed a remote power management device using an ESP32 that drives a PC's front-panel power header through PC817 optocouplers for galvanic isolation, usable over a home network or a Tailscale tunnel.</li>
++              <li>Designed a snap-fit enclosure in Fusion 360 with controlled dimensional tolerances for the microcontroller, wiring terminals, and status LEDs, printed on an FDM printer.</li>
++            </ul>
++          </article>
++
++          <article>
++            <h3>Linux systems and homelab infrastructure</h3>
++            <p class="meta">Systems engineering, Linux, containerization. June 2025 to present</p>
++            <ul>
++              <li>Deploy and administer a headless Linux server on a refurbished Dell OptiPlex, using Docker for containerized workloads, local web services, and dedicated game servers.</li>
++              <li>Manage reverse proxy routing, Wake-on-LAN remote access, and secure public tunnels behind carrier-grade NAT, with all diagnostics and administration done from the command line.</li>
++            </ul>
++          </article>
++
++          <article>
++            <h3>Automotive electrical and security integration</h3>
++            <p class="meta">Automotive electrical, vehicle systems. March 2026</p>
++            <ul>
++              <li>Integrated an aftermarket remote start and security system into a 2015 Toyota RAV4 through direct wire splicing and circuit tracing, without prefabricated harness adapters.</li>
++              <li>Hardwired a dual-channel dashcam into the fuse box for parking-mode recording, with low-voltage cutoff protection to preserve battery health.</li>
++              <li>Adapted the parking light circuit, integrated a manual door lock sensor, and diagnosed and resolved a ground and power pigtail conflict.</li>
++            </ul>
++          </article>
+ 
+-  <!-- SKILLS -->
+-  <section id="skills">
+-    <div class="container">
+-      <p class="section-label fade-up">Skills</p>
+-      <h2 class="section-title fade-up">What I work with.</h2>
+-      <div class="skills-grid">
+-        <div class="skill-group fade-up">
+-          <div class="skill-group-title">Design &amp; Manufacturing</div>
+-          <ul>
+-            <li>Autodesk Fusion 360</li>
+-            <li>3D Printing / FDM</li>
+-            <li>PCB Design</li>
+-            <li>CAD Modeling</li>
+-          </ul>
+-        </div>
+-        <div class="skill-group fade-up">
+-          <div class="skill-group-title">Systems &amp; Hardware</div>
+-          <ul>
+-            <li>Embedded Systems (ESP32)</li>
+-            <li>Soldering &amp; Circuit Rework</li>
+-            <li>Power Electronics (Buck Conversion, BMS)</li>
+-            <li>Automotive Electrical</li>
+-          </ul>
+-        </div>
+-        <div class="skill-group fade-up">
+-          <div class="skill-group-title">Software &amp; Infra</div>
+-          <ul>
+-            <li>Linux (CLI / Headless)</li>
+-            <li>Docker</li>
+-            <li>Reverse Proxying / Tailscale</li>
+-            <li>Slack</li>
+-          </ul>
+         </div>
+       </div>
+-    </div>
+-  </section>
+-
+-  <hr class="rule" />
++    </section>
+ 
+-  <!-- CONTACT -->
+-  <section id="contact">
+-    <div class="container">
+-      <p class="section-label fade-up">Contact</p>
+-      <h2 class="section-title fade-up">Let's connect.</h2>
+-      <a href="mailto:official.teddy.liu@gmail.com" class="contact-email fade-up">official.teddy.liu@gmail.com</a>
+-      <ul class="contact-links fade-up">
+-        <li><a href="https://github.com/tdyliu" target="_blank" rel="noopener">GitHub</a></li>
+-        <li><a href="https://linkedin.com/in/tdyliu" target="_blank" rel="noopener">LinkedIn</a></li>
+-      </ul>
+-    </div>
+-  </section>
++    <section id="skills">
++      <div class="wrap">
++        <h2>Skills</h2>
++        <dl class="skills">
++          <div>
++            <dt>Engineering analysis and design</dt>
++            <dd>Autodesk Fusion 360, CAD modeling, GD&amp;T fundamentals, kinematic analysis, design for manufacturing (DFM), structural optimization, statics, thermofluids, fluid mechanics</dd>
++          </div>
++          <div>
++            <dt>Mechatronics and embedded</dt>
++            <dd>ESP32 microcontrollers, stepper motor control, TMC2209 drivers, actuators and drivetrains, UART and I2C, optoisolators, power electronics (buck conversion, BMS), automotive electrical integration, soldering and circuit rework</dd>
++          </div>
++          <div>
++            <dt>Fabrication and prototyping</dt>
++            <dd>FDM 3D printing (slicing, infill and perimeter optimization), wire harness assembly, mechanical assembly, rapid prototyping</dd>
++          </div>
++          <div>
++            <dt>Software and tools</dt>
++            <dd>Python, C/C++, Bash, Linux (Ubuntu and Fedora CLI), Docker, networking and reverse proxies, Tailscale, KStars and Ekos</dd>
++          </div>
++        </dl>
++      </div>
++    </section>
++
++    <section id="contact" class="alt">
++      <div class="wrap">
++        <h2>Contact</h2>
++        <p class="lead">I am open to mechanical and aerospace engineering internships. Email is the fastest way to reach me.</p>
++        <p class="actions">
++          <a class="btn primary" href="mailto:official.teddy.liu@gmail.com">official.teddy.liu@gmail.com</a>
++          <a class="btn" href="https://linkedin.com/in/tdyliu" target="_blank" rel="noopener">LinkedIn</a>
++          <a class="btn" href="https://github.com/tdyliu" target="_blank" rel="noopener">GitHub</a>
++          <a class="btn" href="resume.pdf">Resume (PDF)</a>
++        </p>
++      </div>
++    </section>
++  </main>
+ 
+-  <!-- FOOTER -->
+   <footer>
+-    <p>Teddy Liu — University of California, Davis, Class of 2027</p>
+-    <p>Aerospace &amp; Mechanical Engineering</p>
++    <div class="wrap">
++      <p>Teddy Liu, B.S. Aerospace and Mechanical Engineering, University of California, Davis</p>
++    </div>
+   </footer>
+-
+-  <script src="script.js"></script>
+-  <script>
+-    // Fade-up on scroll
+-    const observer = new IntersectionObserver(
+-      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+-      { threshold: 0.12 }
+-    );
+-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+-  </script>
+ </body>
+ </html>
+diff --git a/script.js b/script.js
+index 76e30dd..6a89775 100644
+--- a/script.js
++++ b/script.js
+@@ -1,45 +1,15 @@
+-const themeToggle = document.getElementById('theme-toggle');
+-const modeIcon = document.getElementById('mode-icon');
+-const toggleIcon = document.getElementById('toggle-icon');
+-const htmlElement = document.documentElement;
+-
+-// Function to update the UI based on theme
+-function setTheme(theme) {
+-    // If using Bootstrap 5.3, this line handles the color swap automatically
+-    htmlElement.setAttribute('data-bs-theme', theme); 
+-    
+-    // Fallback if you write your own CSS later
+-    htmlElement.setAttribute('data-theme', theme); 
+-    
+-    try {
+-        localStorage.setItem('theme', theme);
+-    } catch (e) {
+-        console.warn('localStorage unavailable, theme will not persist:', e);
+-    }
+-
+-    // Update the icons
+-    if (theme === 'dark') {
+-        modeIcon.className = 'bi bi-moon-stars';
+-        toggleIcon.className = 'bi bi-toggle-on fs-4';
+-    } else {
+-        modeIcon.className = 'bi bi-brightness-high-fill';
+-        toggleIcon.className = 'bi bi-toggle-off fs-4';
+-    }
+-}
+-
+-// Check for saved user preference on load, DEFAULT TO 'dark'
+-let savedTheme = 'dark';
+-try {
+-    savedTheme = localStorage.getItem('theme') || 'dark';
+-} catch (e) {
+-    console.warn('localStorage unavailable, defaulting to dark theme:', e);
+-}
+-setTheme(savedTheme);
+-
+-// Toggle click event
+-themeToggle.addEventListener('click', () => {
+-    // Check current theme, default to dark if null
+-    const currentTheme = htmlElement.getAttribute('data-bs-theme') || 'dark';
+-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+-    setTheme(newTheme);
+-});
+\ No newline at end of file
++const root = document.documentElement;
++let theme;
++try { theme = localStorage.getItem('theme'); } catch (e) { /* storage blocked: follow system */ }
++root.dataset.theme = theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
++
++addEventListener('DOMContentLoaded', () => {
++  const btn = document.getElementById('theme-toggle');
++  const sync = () => { btn.textContent = root.dataset.theme === 'dark' ? 'Light mode' : 'Dark mode'; };
++  sync();
++  btn.addEventListener('click', () => {
++    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
++    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) { /* not persisted */ }
++    sync();
++  });
++});
+diff --git a/style.css b/style.css
+index e428366..c14f3b1 100644
+--- a/style.css
++++ b/style.css
+@@ -1,377 +1,107 @@
+-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
++*, *::before, *::after { box-sizing: border-box; }
++body, h1, h2, h3, p, ul, dl, dd { margin: 0; }
+ 
+ :root {
+-  --bg:       #F7F6F2;
+-  --surface:  #EEECEA;
+-  --ink:      #161412;
+-  --ink-muted:#6B6560;
+-  --accent:   #4172a7;
+-  --rule:     #D5D2CC;
+-  --nav:     rgba(247,246,242,0.88);
+-  --font-display: 'Cormorant', Georgia, serif;
+-  --font-body:    'Karla', system-ui, sans-serif;
+-}
+-
+-/* DARK MODE (Triggered by JS) */
+-[data-theme="dark"] {
+-  --bg: #121212;
+-  --ink: #e9ecef;
+-  --accent: #64afff; /* High-contrast tech accent */
+-  --card-bg: #1e1e1e;
+-  --surface:  #181717;
+-  --ink-muted:#c0c0c0;
+-  --rule:     #D5D2CC;
+-  --nav:     rgba(27, 26, 26, 0.803);
+-}
+-
+-html { scroll-behavior: smooth; }
++  --bg: #ffffff;
++  --surface: #f3f5f8;
++  --ink: #14202e;
++  --muted: #4b5a6b;
++  --line: #d3dae3;
++  --accent: #1a5ca8;
++  --on-accent: #ffffff;
++  --serif: 'Source Serif 4', Georgia, serif;
++  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
++  color-scheme: light;
++}
++[data-theme='dark'] {
++  --bg: #0e1620;
++  --surface: #142030;
++  --ink: #e8edf3;
++  --muted: #a9b6c5;
++  --line: #2a3a4d;
++  --accent: #6fb0f2;
++  --on-accent: #0e1620;
++  color-scheme: dark;
++}
++
++@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
++html { scroll-padding-top: 4.5rem; }
+ 
+ body {
+   background: var(--bg);
+   color: var(--ink);
+-  font-family: var(--font-body);
+-  font-size: 16px;
+-  line-height: 1.5;
++  font: 400 1.0625rem/1.6 var(--sans);
+   -webkit-font-smoothing: antialiased;
+-  transition: background 0.3s ease, color 0.3s ease;
+ }
+-
+ a { color: var(--accent); }
+-
+-/* ── NAV ── */
+-nav {
+-  position: fixed; top: 0; left: 0; right: 0;
+-  z-index: 100;
+-  display: flex; align-items: center; justify-content: space-between;
+-  padding: 1.25rem 4rem;
+-  background: var(--nav);
+-  backdrop-filter: blur(12px);
+-  border-bottom: 1px solid var(--rule);
+-}
+-.nav-name {
+-  font-family: var(--font-display);
+-  font-size: 1.2rem;
+-  font-weight: 500;
+-  letter-spacing: 0.01em;
+-  color: var(--ink);
+-  text-decoration: none;
+-}
+-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+-.nav-links a {
+-  font-size: 0.8rem;
+-  font-weight: 500;
+-  letter-spacing: 0.1em;
+-  text-transform: uppercase;
+-  color: var(--ink-muted);
+-  text-decoration: none;
+-  transition: color 0.2s;
+-}
+-.nav-links a:hover { color: var(--ink); }
+-
+-#theme-toggle {
+-    background-color: transparent; /* Container style - removes gray bg */
+-    border: none;                  /* Removes outline */
+-    padding-top: 2px; 
+-    font-size: 1.25rem;      /* Button sizing */
+-    cursor: pointer;
+-}
+-
+-/* ── 2. ICON INSIDE (changes color) ── */
+-[data-bs-theme="dark"] #toggle-icon,
+-[data-bs-theme="dark"] .bi-toggle-on {
+-  color: #fff !important; /* Icon color in dark mode */
+-}
+-
+-[data-bs-theme="light"] #toggle-icon,
+-[data-bs-theme="light"] .bi-toggle-on {
+-  color: var(--ink) !important; /* Icon color in light mode */
+-}
+-
+-/* ── LAYOUT ── */
+-section { padding: 7rem 0; }
+-.container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+-.section-label {
+-  font-size: 0.72rem;
+-  font-weight: 500;
+-  letter-spacing: 0.15em;
+-  text-transform: uppercase;
+-  color: var(--accent);
+-  margin-bottom: 0.75rem;
+-}
+-.section-title {
+-  font-family: var(--font-display);
+-  font-size: clamp(2rem, 4vw, 2.8rem);
+-  font-weight: 500;
+-  line-height: 1.15;
+-  color: var(--ink);
+-  margin-bottom: 3rem;
+-}
+-hr.rule {
+-  border: none;
+-  border-top: 1px solid var(--rule);
+-  margin: 0;
+-}
+-
+-/* ── HERO ── */
+-#hero {
+-  min-height: 100vh;
+-  display: flex; align-items: center;
+-  padding-top: 5rem;
+-}
+-.hero-inner { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+-.hero-tag {
+-  display: inline-flex; align-items: center; gap: 0.6rem;
+-  font-size: 0.75rem;
+-  font-weight: 500;
+-  letter-spacing: 0.12em;
+-  text-transform: uppercase;
+-  color: var(--ink-muted);
+-  margin-bottom: 1.75rem;
+-}
+-.hero-tag::before {
+-  content: '';
+-  display: block;
+-  width: 28px; height: 1px;
+-  background: var(--ink-muted);
+-}
+-h1 {
+-  font-family: var(--font-display);
+-  font-size: clamp(3.5rem, 9vw, 7rem);
+-  font-weight: 500;
+-  line-height: 1.0;
+-  color: var(--ink);
+-  letter-spacing: -0.01em;
+-  margin-bottom: 2rem;
+-}
+-h1 em {
+-  font-style: italic;
+-  color: var(--accent);
+-}
+-.hero-sub {
+-  font-size: 1.1rem;
+-  font-weight: 300;
+-  color: var(--ink-muted);
+-  max-width: 520px;
+-  line-height: 1.75;
+-  margin-bottom: 3rem;
+-}
+-.hero-cta {
+-  display: inline-flex; align-items: center; gap: 0.75rem;
+-  font-size: 0.8rem;
+-  font-weight: 500;
+-  letter-spacing: 0.1em;
+-  text-transform: uppercase;
+-  color: var(--accent);
+-  text-decoration: none;
+-  border-bottom: 1px solid var(--accent);
+-  padding-bottom: 2px;
+-  transition: opacity 0.2s;
+-}
+-.hero-cta:hover { opacity: 0.65; }
+-.hero-cta svg { width: 14px; height: 14px; }
+-
+-/* ── ABOUT ── */
+-#about { background: var(--surface); }
+-.about-grid {
+-  display: grid;
+-  grid-template-columns: 1fr 1fr;
+-  gap: 4rem;
+-  align-items: start;
+-}
+-.about-text p { color: var(--ink-muted); margin-bottom: 1.25rem; font-size: 1rem; }
+-.about-text p:last-child { margin-bottom: 0; }
+-.about-stats { display: flex; flex-direction: column; gap: 1.5rem; }
+-.stat {
+-  padding: 1.5rem;
+-  background: var(--bg);
+-  border: 1px solid var(--rule);
+-}
+-.stat-number {
+-  font-family: var(--font-display);
+-  font-size: 2.4rem;
+-  font-weight: 500;
+-  color: var(--accent);
+-  line-height: 1;
+-  margin-bottom: 0.3rem;
+-}
+-.stat-label {
+-  font-size: 0.78rem;
+-  font-weight: 500;
+-  letter-spacing: 0.08em;
+-  text-transform: uppercase;
+-  color: var(--ink-muted);
+-}
+-
+-/* ── PROJECTS ── */
+-.project-list { display: flex; flex-direction: column; gap: 0; }
+-.project-item {
+-  border-top: 1px solid var(--rule);
+-  padding: 2.5rem 0;
+-  display: grid;
+-  grid-template-columns: 1fr 2fr;
+-  gap: 3rem;
+-  align-items: start;
+-  transition: background 0.2s;
+-}
+-.project-item:last-child { border-bottom: 1px solid var(--rule); }
+-/* .project-meta {} */
+-.project-number {
+-  font-family: var(--font-display);
+-  font-size: 1.5rem;
+-  color: var(--ink-muted);
+-  font-style: italic;
+-  margin-bottom: 0.5rem;
+-  margin-top: -0.5rem;
+-}
+-.project-name {
+-  font-family: var(--font-display);
+-  font-size: 1.5rem;
+-  font-weight: 500;
+-  color: var(--ink);
+-  line-height: 1.2;
+-  margin-bottom: 0.75rem;
+-}
+-.project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+-.tag {
+-  font-size: 0.68rem;
+-  font-weight: 500;
+-  letter-spacing: 0.08em;
+-  text-transform: uppercase;
+-  color: var(--accent);
+-  background: rgba(28,63,110,0.07);
+-  padding: 0.25rem 0.6rem;
+-}
+-.project-desc { color: var(--ink-muted); font-size: 0.95rem; line-height: 1.75; }
+-
+-/* ── EXPERIENCE ── */
+-#experience { background: var(--surface); }
+-.exp-list { display: flex; flex-direction: column; gap: 0; }
+-.exp-item {
+-  border-top: 1px solid var(--rule);
+-  padding: 2rem 0;
+-  display: grid;
+-  grid-template-columns: 180px 1fr;
+-  gap: 2.5rem;
+-}
+-.exp-item:last-child { border-bottom: 1px solid var(--rule); }
+-.exp-date {
+-  font-size: 0.85rem;
+-  font-weight: 500;
+-  letter-spacing: 0.06em;
+-  color: var(--ink-muted);
+-  text-transform: uppercase;
+-  padding-top: 0.2rem;
+-}
+-.exp-org {
+-  font-family: var(--font-display);
+-  font-size: 1.2rem;
+-  font-weight: 500;
+-  color: var(--ink);
+-  margin-bottom: 0.2rem;
+-}
+-.exp-role {
+-  font-size: 0.8rem;
+-  font-weight: 500;
+-  letter-spacing: 0.08em;
+-  text-transform: uppercase;
+-  color: var(--accent);
+-  margin-bottom: 0.75rem;
+-}
+-.exp-bullets { padding-left: 1rem; }
+-.exp-bullets li {
+-  font-size: 0.92rem;
+-  color: var(--ink-muted);
+-  margin-bottom: 0.4rem;
+-  line-height: 1.65;
++:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
++
++.wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
++.skip { position: absolute; left: -999px; background: var(--accent); color: var(--on-accent); padding: .5rem 1rem; z-index: 200; }
++.skip:focus { left: 0; }
++
++/* header */
++.site-header { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--line); }
++.bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1.5rem; min-height: 4rem; }
++.brand { font: 600 1.25rem var(--serif); color: var(--ink); text-decoration: none; }
++nav { display: flex; align-items: center; flex-wrap: wrap; gap: .25rem 1.5rem; }
++nav a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: .95rem; }
++nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
++#theme-toggle { font: 500 .85rem var(--sans); color: var(--ink); background: none; border: 1px solid var(--line); border-radius: 4px; padding: .3rem .7rem; cursor: pointer; }
++#theme-toggle:hover { border-color: var(--accent); }
++
++/* type */
++h1 { font: 700 clamp(2.75rem, 7vw, 4.5rem)/1.05 var(--serif); letter-spacing: -.02em; }
++h2 { font: 600 1.9rem/1.2 var(--serif); margin-bottom: 2rem; }
++h3 { font: 600 1.15rem/1.35 var(--sans); }
++.role { font-size: 1.25rem; font-weight: 500; margin: .75rem 0 1.25rem; }
++.lead { color: var(--muted); max-width: 60ch; }
++ul { padding-left: 1.15rem; }
++li { margin-top: .5rem; max-width: 70ch; }
++
++/* sections */
++section { padding: 4.5rem 0; }
++.alt { background: var(--surface); border-block: 1px solid var(--line); }
++
++/* hero */
++.hero { padding: 4.5rem 0 5rem; }
++.hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3.5rem; align-items: start; }
++.actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
++.btn { display: inline-block; padding: .65rem 1.2rem; border: 1.5px solid var(--accent); border-radius: 4px; color: var(--accent); font-weight: 500; text-decoration: none; }
++.btn:hover { background: var(--surface); }
++.btn.primary { background: var(--accent); color: var(--on-accent); }
++.btn.primary:hover { opacity: .88; }
++
++/* title block, like the corner of an engineering drawing */
++.titleblock { border: 2px solid var(--ink); background: var(--bg); }
++.titleblock div { display: grid; grid-template-columns: 7.5rem 1fr; border-top: 1px solid var(--line); }
++.titleblock div:first-child { border-top: 0; }
++.titleblock dt, .titleblock dd { padding: .8rem 1rem; }
++.titleblock dt { color: var(--muted); font-size: .9rem; border-right: 1px solid var(--line); }
++.titleblock dd { font-weight: 500; }
++
++/* experience */
++.job { display: grid; grid-template-columns: 13rem 1fr; gap: 2rem; padding: 2rem 0; border-top: 1px solid var(--line); }
++.job:last-child { border-bottom: 1px solid var(--line); }
++.when { color: var(--muted); font-size: .95rem; padding-top: .15rem; }
++
++/* projects */
++.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
++.projects article { background: var(--bg); border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 2px; padding: 1.5rem; }
++.projects article:first-child { grid-column: 1 / -1; }
++.meta { color: var(--muted); font-size: .92rem; margin: .25rem 0 .5rem; }
++
++/* skills */
++.skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem 3rem; }
++.skills dt { font-weight: 600; padding-bottom: .5rem; margin-bottom: .5rem; border-bottom: 2px solid var(--accent); }
++.skills dd { color: var(--muted); }
++
++footer { padding: 2rem 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
++
++@media (max-width: 800px) {
++  .hero-grid, .projects, .skills { grid-template-columns: 1fr; }
++  .hero-grid { gap: 2.5rem; }
++  .job { grid-template-columns: 1fr; gap: .5rem; }
++  .titleblock div { grid-template-columns: 6.5rem 1fr; }
++  section { padding: 3.5rem 0; }
+ }
+-
+-/* ── SKILLS ── */
+-.skills-grid {
+-  display: grid;
+-  grid-template-columns: repeat(3, 1fr);
+-  gap: 1.5rem;
+-}
+-.skill-group {
+-  padding: 1.75rem;
+-  border: 1px solid var(--rule);
+-  background: var(--surface);
+-}
+-.skill-group-title {
+-  font-size: 0.72rem;
+-  font-weight: 500;
+-  letter-spacing: 0.12em;
+-  text-transform: uppercase;
+-  color: var(--accent);
+-  margin-bottom: 1rem;
+-  padding-bottom: 0.75rem;
+-  border-bottom: 1px solid var(--rule);
+-}
+-.skill-group ul { list-style: none; }
+-.skill-group li {
+-  font-size: 0.88rem;
+-  color: var(--ink-muted);
+-  padding: 0.3rem 0;
+-  border-bottom: 1px solid var(--rule);
+-}
+-.skill-group li:last-child { border-bottom: none; }
+-
+-/* ── CONTACT ── */
+-#contact { text-align: center; }
+-.contact-email {
+-  font-family: var(--font-display);
+-  font-size: clamp(1.8rem, 4vw, 3rem);
+-  font-weight: 500;
+-  color: var(--ink);
+-  text-decoration: none;
+-  border-bottom: 2px solid var(--accent);
+-  padding-bottom: 4px;
+-  transition: opacity 0.2s;
+-  display: inline-block;
+-  margin-bottom: 3rem;
+-}
+-.contact-email:hover { opacity: 0.6; }
+-.contact-links {
+-  display: flex; justify-content: center; gap: 2.5rem;
+-  list-style: none;
+-}
+-.contact-links a {
+-  font-size: 0.78rem;
+-  font-weight: 500;
+-  letter-spacing: 0.1em;
+-  text-transform: uppercase;
+-  color: var(--ink-muted);
+-  text-decoration: none;
+-  transition: color 0.2s;
+-}
+-.contact-links a:hover { color: var(--accent); }
+-
+-/* ── FOOTER ── */
+-footer {
+-  padding: 2rem 4rem;
+-  border-top: 1px solid var(--rule);
+-  display: flex; justify-content: space-between; align-items: center;
+-}
+-footer p {
+-  font-size: 0.75rem;
+-  color: var(--ink-muted);
+-  letter-spacing: 0.04em;
+-}
+-
+-/* ── FADE-IN ── */
+-.fade-up {
+-  opacity: 0;
+-  transform: translateY(22px);
+-  transition: opacity 0.65s ease, transform 0.65s ease;
+-}
+-.fade-up.visible { opacity: 1; transform: none; }
+-
+-/* ── RESPONSIVE ── */
+-@media (max-width: 680px) {
+-  nav { padding: 1rem 1.5rem; }
+-  .nav-links { gap: 1.5rem; }
+-  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+-  .project-item { grid-template-columns: 1fr; gap: 1rem; }
+-  .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+-  .skills-grid { grid-template-columns: 1fr; }
+-  footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+-}
+\ No newline at end of file

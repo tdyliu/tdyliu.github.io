@@ -12,8 +12,7 @@ A single-page portfolio covering my background, projects, work experience, and s
 
 - Vanilla HTML / CSS / JavaScript — no framework, no build step
 - CSS custom properties for theming (light/dark mode toggle)
-- [Bootstrap Icons](https://icons.getbootstrap.com/) for UI icons
-- Google Fonts (Cormorant, Karla)
+- Google Fonts (Source Serif 4, IBM Plex Sans)
 - Hosted on GitHub Pages
 
 ## Structure
@@ -27,8 +26,7 @@ A single-page portfolio covering my background, projects, work experience, and s
 
 ## Features
 
-- Light/dark theme toggle with `localStorage` persistence
-- Scroll-triggered fade-in animations
+- Light theme by default, follows system dark mode, manual toggle persisted in `localStorage`
 - Fully responsive layout
 
 ## Contact

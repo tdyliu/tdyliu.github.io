@@ -2,270 +2,199 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teddy Liu — Engineering Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teddy Liu | Aerospace &amp; Mechanical Engineering</title>
+  <meta name="description" content="Portfolio of Teddy Liu, UC Davis aerospace and mechanical engineering student (B.S., expected December 2027) seeking engineering internships. CAD, mechatronics, embedded systems, and electromechanical maintenance." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#hero" class="nav-name">Teddy Liu</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li> 
-        <i id="mode-icon" class="bi bi-moon-stars theme-icon" style="padding-right: 0.1rem;"></i>
-        <button id="theme-toggle" class="btn">
-          <i id="toggle-icon" class="bi bi-toggle-on"></i>
-        </button>
-      </li>
-    </ul>
-
-  </nav>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-inner">
-      <div class="hero-tag fade-up">Aerospace &amp; Mechanical Engineering</div>
-      <h1 class="fade-up">Teddy<br />Liu</h1>
-      <p class="hero-sub fade-up">
-        Junior engineer with hands-on experience in CAD modeling, additive manufacturing, embedded systems, and electromechanical maintenance. I build things that work.
-      </p>
-      <a href="#projects" class="hero-cta fade-up">
-        View Projects
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M1 7h12M7 1l6 6-6 6"/>
-        </svg>
-      </a>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="#top">Teddy Liu</a>
+      <nav aria-label="Primary">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle" type="button">Dark mode</button>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <hr class="rule" />
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <p class="section-label fade-up">About</p>
-      <h2 class="section-title fade-up">Engineer by degree,<br />builder by habit.</h2>
-      <div class="about-grid">
-        <div class="about-text fade-up">
-          <p>
-            I'm a 4th year student at the University of California, Davis pursuing a double major in Aerospace and Mechanical Engineering. I've been designing in Autodesk Fusion 360 since my freshman year of high school, and most of my projects start with a problem I actually wanted to solve.
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>Teddy Liu</h1>
+          <p class="role">Aerospace &amp; Mechanical Engineering student, UC Davis</p>
+          <p class="lead">
+            I maintain industrial electromechanical machinery, and I design, build, and test my own hardware in CAD, mechatronics, and embedded systems. I am looking for a mechanical or aerospace engineering internship where I can contribute to real products.
           </p>
-          <p>
-            Outside of coursework, I design and 3D print parts on my own printer, build custom electronics, and maintain a self-hosted Linux server. I'm interested in defense engineering and embedded engineering projects.
-          </p>
-          <p>
-            I'm currently seeking internship opportunities where I can get hands-on experience in Mechanical and Aerospace Engineering.
+          <p class="actions">
+            <a class="btn primary" href="resume.pdf">Download resume</a>
+            <a class="btn" href="#contact">Get in touch</a>
           </p>
         </div>
-        <div class="about-stats fade-up">
-          <div class="stat">
-            <div class="stat-number">5+</div>
-            <div class="stat-label">Years using Fusion 360</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">2027</div>
-            <div class="stat-label">Expected graduation</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">2×</div>
-            <div class="stat-label">Aerospace &amp; Mechanical Engineering</div>
-          </div>
-        </div>
+
+        <dl class="titleblock" aria-label="Summary">
+          <div><dt>Education</dt><dd>B.S. Aerospace Engineering and B.S. Mechanical Engineering (double major), University of California, Davis</dd></div>
+          <div><dt>Graduation</dt><dd>Expected December 2027</dd></div>
+          <div><dt>Seeking</dt><dd>Mechanical and aerospace engineering internships</dd></div>
+          <div><dt>Interests</dt><dd>Aerospace, defense, and embedded systems</dd></div>
+          <div><dt>Core tools</dt><dd>Fusion 360, FDM 3D printing, ESP32, Linux, Docker</dd></div>
+          <div><dt>Location</dt><dd>Davis, CA</dd></div>
+        </dl>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <hr class="rule" />
+    <section id="experience">
+      <div class="wrap">
+        <h2>Experience</h2>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <p class="section-label fade-up">Projects</p>
-      <h2 class="section-title fade-up">Things I've built.</h2>
-      <div class="project-list">
-
-        <div class="project-item fade-up">
-          <div class="project-meta">
-            <div class="project-number">1</div>
-            <div class="project-name">ESP32 Remote Wake Switch</div>
-            <div class="project-tags">
-              <span class="tag">PCB Design</span>
-              <span class="tag">Embedded</span>
-              <span class="tag">Fusion 360</span>
-              <span class="tag">3D Printing</span>
-            </div>
-          </div>
-          <div class="project-desc">
-            Designed and fabricated a custom PCB to interface with an ESP32 microcontroller, enabling remote PC power control over a home network or network tunnel like tailscale. Programmed embedded firmware to handle wake signals and designed a fitted enclosure in Fusion 360, printed on my personal 3D printer. The project covered the full development cycle from schematic to finished physical device.
-          </div>
-        </div>
-
-        <div class="project-item fade-up">
-          <div class="project-meta">
-            <div class="project-number">2</div>
-            <div class="project-name">Headless Home Linux Server</div>
-            <div class="project-tags">
-              <span class="tag">Linux</span>
-              <span class="tag">Docker</span>
-              <span class="tag">Networking</span>
-              <span class="tag">Server Admin</span>
-            </div>
-          </div>
-          <div class="project-desc">
-            Deployed a headless Linux server on a refurbished Dell OptiPlex to host game servers and cloud storage. Configured playit.gg tunnels to expose services publicly, bypassing carrier-grade NAT (CGNAT) without port forwarding. Managed via CLI and self-hosted web interfaces.
-          </div>
-        </div>
-        
-        <div class="project-item fade-up">
-          <div class="project-meta">
-            <div class="project-number">3</div>
-            <div class="project-name">Equatorial Telescope Mount Tracker</div>
-            <div class="project-tags">
-              <span class="tag">Embedded</span>
-              <span class="tag">Fusion 360</span>
-              <span class="tag">3D Printing</span>
-              <span class="tag">Mechatronics</span>
-              <span class="tag">Power Electronics</span>
-            </div>
-          </div>
-          <div class="project-desc">
-            Built a motorized RA drive for an equatorial telescope mount using a WeMos D1 R32 and CNC Shield V3 running OnStepX firmware, with TMC2209 stepper drivers for quiet, precise tracking. Designed a GT2 belt reduction (3:1) for the RA axis and a portable 12V power stage — USB-C PD triggered via a ZY12PDN buck converter off a 10000mAh battery bank — for fully off-grid GoTo tracking.
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule" />
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="container">
-      <p class="section-label fade-up">Experience</p>
-      <h2 class="section-title fade-up">Where I've worked.</h2>
-      <div class="exp-list">
-
-        <div class="exp-item fade-up">
-          <div class="exp-date">November 2023<br />— Present</div>
+        <article class="job">
+          <p class="when">November 2023 to present<br />Davis, CA</p>
           <div>
-            <div class="exp-org">UC Davis Memorial Union Games Area</div>
-            <div class="exp-role">Student Mechanic</div>
-            <ul class="exp-bullets">
-              <li>Perform routine maintenance and repairs on pinspotter machines and lane oiling equipment across all lanes</li>
-              <li>Diagnose and resolve mechanical malfunctions in electromechanical systems to minimize operational downtime</li>
-              <li>Coordinate with the maintenance team via Slack to communicate machine status and track repairs in real time</li>
+            <h3>Student Mechanic, UC Davis Memorial Union Games Area</h3>
+            <ul>
+              <li>Maintain, troubleshoot, and repair high-cycle industrial machinery, including electromechanical pinspotters and automated lane conditioning platforms.</li>
+              <li>Diagnose mechanical drive assemblies, gearboxes, microswitches, and fluid delivery pumping systems using systematic fault isolation to minimize lane downtime.</li>
+              <li>Inspect and service power transmission components, including belt drives, solenoid actuators, and bearings, to keep every lane operating.</li>
+              <li>Coordinate maintenance scheduling and machine status updates across the team, tracking repairs and flagging recurring electromechanical issues in real time.</li>
             </ul>
           </div>
-        </div>
+        </article>
 
-        <div class="exp-item fade-up">
-          <div class="exp-date">June 2026<br />— July 2026</div>
+        <article class="job">
+          <p class="when">June 2026 to July 2026</p>
           <div>
-            <div class="exp-org">OffKai Expo</div>
-            <div class="exp-role">Robot Tech</div>
-            <ul class="exp-bullets">
-              <li>Modified an Ohmnilabs telepresence robot's audio system, replacing the stock speaker with a Panasonic car speaker driven by a Fosi M04 amplifier for clearer guest communication in loud convection centers</li>
-              <li>Built a small bypass circuit to trick the robot's BMS, enabling swappable 40V batteries for extended uninterrupted operation</li>
-              <li>Managed call links and remote connectivity for guest telepresence sessions</li>
-              <li>Chaperoned guests operating the robots on-site, troubleshooting hardware and connection issues in real time</li>
+            <h3>Robot Tech, OffKai Expo</h3>
+            <ul>
+              <li>Upgraded the audio system of an Ohmnilabs telepresence robot, replacing the stock speaker with a Panasonic car speaker driven by a Fosi M04 amplifier so guests could be heard in loud convention halls.</li>
+              <li>Built a bypass circuit for the robot's battery management system (BMS) to enable swappable 40V batteries and extended uninterrupted operation.</li>
+              <li>Managed call links and remote connectivity, and supported guests on site, troubleshooting hardware and connection issues in real time.</li>
             </ul>
           </div>
-        </div>
+        </article>
 
-        <div class="exp-item fade-up">
-          <div class="exp-date">July 2022<br />— August 2022</div>
+        <article class="job">
+          <p class="when">July 2022 to August 2022<br />Hayward, CA</p>
           <div>
-            <div class="exp-org">Alameda County Public Works Agency (ACPWA)</div>
-            <div class="exp-role">Intern</div>
-            <ul class="exp-bullets">
-              <li>Used CAD software to catalog and map pedestrian ramp infrastructure in support of ADA compliance surveying</li>
-              <li>Contributed to municipal infrastructure documentation to aid city road improvement planning</li>
+            <h3>Engineering Intern, Alameda County Public Works Agency</h3>
+            <ul>
+              <li>Used CAD software to catalog and map pedestrian ramp infrastructure across county road networks in support of ADA compliance surveying.</li>
+              <li>Provided accurate spatial data and documentation to support road improvement planning and civil engineering operations.</li>
             </ul>
           </div>
-        </div>
-
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <hr class="rule" />
+    <section id="projects" class="alt">
+      <div class="wrap">
+        <h2>Projects</h2>
+        <div class="projects">
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="container">
-      <p class="section-label fade-up">Skills</p>
-      <h2 class="section-title fade-up">What I work with.</h2>
-      <div class="skills-grid">
-        <div class="skill-group fade-up">
-          <div class="skill-group-title">Design &amp; Manufacturing</div>
-          <ul>
-            <li>Autodesk Fusion 360</li>
-            <li>3D Printing / FDM</li>
-            <li>PCB Design</li>
-            <li>CAD Modeling</li>
-          </ul>
-        </div>
-        <div class="skill-group fade-up">
-          <div class="skill-group-title">Systems &amp; Hardware</div>
-          <ul>
-            <li>Embedded Systems (ESP32)</li>
-            <li>Soldering &amp; Circuit Rework</li>
-            <li>Power Electronics (Buck Conversion, BMS)</li>
-            <li>Automotive Electrical</li>
-          </ul>
-        </div>
-        <div class="skill-group fade-up">
-          <div class="skill-group-title">Software &amp; Infra</div>
-          <ul>
-            <li>Linux (CLI / Headless)</li>
-            <li>Docker</li>
-            <li>Reverse Proxying / Tailscale</li>
-            <li>Slack</li>
-          </ul>
+          <article>
+            <h3>DIY equatorial GoTo telescope mount</h3>
+            <p class="meta">Mechanical design, mechatronics, fabrication. April 2026 to present</p>
+            <ul>
+              <li>Built an automated GoTo tracking mount for refractor and reflector telescopes, running OnStepX firmware on an ESP32 (WeMos D1 R32) with TMC2209 silent stepper drivers.</li>
+              <li>Designed and fabricated a 3:1 GT2 belt reduction for the Right Ascension axis, balancing output torque against sidereal tracking resolution.</li>
+              <li>Modeled custom optical tube adapters in Fusion 360 and printed them in matte PLA with high-perimeter gyroid infill to resist flexure under load.</li>
+              <li>Designed a portable 12V power stage (USB-C PD trigger and ZY12PDN buck converter on a battery bank) for fully off-grid tracking.</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>Automated astrophotography and instrumentation pipeline</h3>
+            <p class="meta">Optical systems, systems integration, signal processing. May 2026 to present</p>
+            <ul>
+              <li>Configured a headless Raspberry Pi 4B running KStars, Ekos, and AstroDMx Capture to control cameras and acquire images over a local wireless network.</li>
+              <li>Integrated a filter-modified DSLR and CMOS planetary cameras to maximize sensor dynamic range for low signal-to-noise deep-sky imaging.</li>
+              <li>Built a multi-stage processing pipeline in Siril and RawTherapee for stacking, calibration, and radiometric correction, and traced and resolved a firmware compression artifact.</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>Optoisolated network wake switch</h3>
+            <p class="meta">Embedded systems, circuit design, CAD. December 2025</p>
+            <ul>
+              <li>Developed a remote power management device using an ESP32 that drives a PC's front-panel power header through PC817 optocouplers for galvanic isolation, usable over a home network or a Tailscale tunnel.</li>
+              <li>Designed a snap-fit enclosure in Fusion 360 with controlled dimensional tolerances for the microcontroller, wiring terminals, and status LEDs, printed on an FDM printer.</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>Linux systems and homelab infrastructure</h3>
+            <p class="meta">Systems engineering, Linux, containerization. June 2025 to present</p>
+            <ul>
+              <li>Deploy and administer a headless Linux server on a refurbished Dell OptiPlex, using Docker for containerized workloads, local web services, and dedicated game servers.</li>
+              <li>Manage reverse proxy routing, Wake-on-LAN remote access, and secure public tunnels behind carrier-grade NAT, with all diagnostics and administration done from the command line.</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>Automotive electrical and security integration</h3>
+            <p class="meta">Automotive electrical, vehicle systems. March 2026</p>
+            <ul>
+              <li>Integrated an aftermarket remote start and security system into a 2015 Toyota RAV4 through direct wire splicing and circuit tracing, without prefabricated harness adapters.</li>
+              <li>Hardwired a dual-channel dashcam into the fuse box for parking-mode recording, with low-voltage cutoff protection to preserve battery health.</li>
+              <li>Adapted the parking light circuit, integrated a manual door lock sensor, and diagnosed and resolved a ground and power pigtail conflict.</li>
+            </ul>
+          </article>
+
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <hr class="rule" />
+    <section id="skills">
+      <div class="wrap">
+        <h2>Skills</h2>
+        <dl class="skills">
+          <div>
+            <dt>Engineering analysis and design</dt>
+            <dd>Autodesk Fusion 360, CAD modeling, GD&amp;T fundamentals, kinematic analysis, design for manufacturing (DFM), structural optimization, statics, thermofluids, fluid mechanics</dd>
+          </div>
+          <div>
+            <dt>Mechatronics and embedded</dt>
+            <dd>ESP32 microcontrollers, stepper motor control, TMC2209 drivers, actuators and drivetrains, UART and I2C, optoisolators, power electronics (buck conversion, BMS), automotive electrical integration, soldering and circuit rework</dd>
+          </div>
+          <div>
+            <dt>Fabrication and prototyping</dt>
+            <dd>FDM 3D printing (slicing, infill and perimeter optimization), wire harness assembly, mechanical assembly, rapid prototyping</dd>
+          </div>
+          <div>
+            <dt>Software and tools</dt>
+            <dd>Python, C/C++, Bash, Linux (Ubuntu and Fedora CLI), Docker, networking and reverse proxies, Tailscale, KStars and Ekos</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <p class="section-label fade-up">Contact</p>
-      <h2 class="section-title fade-up">Let's connect.</h2>
-      <a href="mailto:official.teddy.liu@gmail.com" class="contact-email fade-up">official.teddy.liu@gmail.com</a>
-      <ul class="contact-links fade-up">
-        <li><a href="https://github.com/tdyliu" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/tdyliu" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
-  </section>
+    <section id="contact" class="alt">
+      <div class="wrap">
+        <h2>Contact</h2>
+        <p class="lead">I am open to mechanical and aerospace engineering internships. Email is the fastest way to reach me.</p>
+        <p class="actions">
+          <a class="btn primary" href="mailto:official.teddy.liu@gmail.com">official.teddy.liu@gmail.com</a>
+          <a class="btn" href="https://linkedin.com/in/tdyliu" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/tdyliu" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="resume.pdf">Resume (PDF)</a>
+        </p>
+      </div>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
   <footer>
-    <p>Teddy Liu — University of California, Davis, Class of 2027</p>
-    <p>Aerospace &amp; Mechanical Engineering</p>
+    <div class="wrap">
+      <p>Teddy Liu, B.S. Aerospace and Mechanical Engineering, University of California, Davis</p>
+    </div>
   </footer>
-
-  <script src="script.js"></script>
-  <script>
-    // Fade-up on scroll
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.12 }
-    );
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
